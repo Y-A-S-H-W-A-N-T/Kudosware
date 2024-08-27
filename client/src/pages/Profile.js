@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import Sidebar from './../component/sidebar';
 import styles from '../styles/profile.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,7 +10,9 @@ import axios from 'axios';
 
 function Profile() {
   const user = JSON.parse(window.localStorage.getItem('user')) || {};
-  const fileInputRef = useRef(null);
+  const fileInputRef = useRef(null)
+
+  const [loading,setLoading] = useState(false)
 
   const profilePicture = ()=>{
     if (fileInputRef.current) {
@@ -22,7 +24,7 @@ function Profile() {
 
   // uploading profile picture in Firebase Cloud and fetching Metadata
   const uploadPicture = async(e)=>{
-    console.log(e.target.files[0])
+    setLoading(true)
     const storageRef = ref(storage, `profileImage/${user.firstName}`);
         const uploadTask = uploadBytesResumable(storageRef, e.target.files[0]);
         uploadTask.on(
@@ -46,6 +48,7 @@ function Profile() {
     await axios.post('/employee/pfp', { profileImage : URL, email: user.email })
     .then((res)=>{
       if(res.data.status === 200){
+        setLoading(false)
         window.localStorage.setItem('user',JSON.stringify(res.data.user))
       }
       window.location.reload()
@@ -58,6 +61,7 @@ function Profile() {
       <div className={styles.profileContent}>
         <div className={styles.profileHeader}>
           <img src={user.profileImage || LOGO} className={styles.profileImage} alt=''  />
+          {loading? <p>Loading...</p> : <></>}
           <button className={styles.editButton} onClick={profilePicture}>
             <FontAwesomeIcon icon={faUserEdit} />
           </button>

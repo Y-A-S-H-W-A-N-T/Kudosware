@@ -7,11 +7,14 @@ function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate()
+  const [loading,setLoading] = useState(false)
 
   const handleSubmit = async(e) => {
+    setLoading(true)
     e.preventDefault()
     await axios.post('/employee/login',{ email: email, password: password })
     .then((res)=>{
+      setLoading(false)
         if(res.data.status === 200)
         {
             window.localStorage.setItem('user',JSON.stringify(res.data.user))
@@ -45,7 +48,7 @@ function Login() {
           className={styles.inputField}
         />
         <button type="submit" className={styles.loginButton}>
-          Login
+          {loading? 'Loading...' : 'Login'}
         </button>
       </form>
     </div>

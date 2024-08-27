@@ -7,7 +7,7 @@ import Home from './pages/home';
 import Jobs from './pages/jobs';
 import Overview from './pages/overview';
 
-axios.defaults.baseURL = "http://localhost:8000/"
+axios.defaults.baseURL = "https://kudosware-5qtd.onrender.com/"
 
 const App = () => {
 

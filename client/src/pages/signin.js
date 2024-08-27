@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router'
 const SignIN = () => {
     const navigate = useNavigate()
 
+    const [loading,setLoading] = useState(false)
     const [step, setStep] = useState(1)
     const [User, setUser] = useState({
         firstName: '',
@@ -58,6 +59,7 @@ const SignIN = () => {
     };
 
     const handleSubmit = async(e) => {
+        setLoading(true)
         e.preventDefault()
         uploadPDF() // this function will also call storeUser inside it.
     }
@@ -69,6 +71,7 @@ const SignIN = () => {
         })
         .then((res)=>{
             if(res.data.status === 200){
+                setLoading(false)
                 window.localStorage.setItem('user',JSON.stringify(res.data.user)) // test this
                 navigate('/profile',{ replace: true })
             }
@@ -317,7 +320,7 @@ const SignIN = () => {
                                 className={styles.button}
                                 disabled={!isStepValid()}
                             >
-                                Submit
+                                {loading? 'Loading' : 'Submit'}
                             </button>
                         </div>
                     </>
