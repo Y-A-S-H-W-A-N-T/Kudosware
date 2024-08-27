@@ -1,0 +1,155 @@
+/* profile.module.css */
+
+.profileContainer {
+    display: flex;
+  }
+  
+  .profileContent {
+    flex-grow: 1;
+    padding: 2rem;
+    background-color: #f9fafb; /* Tailwind's bg-gray-100 equivalent */
+  }
+  
+  .profileHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .profileImage {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #2563eb; /* Tailwind's border-blue-600 equivalent */
+  }
+  
+  .editButton {
+    margin-top: 1rem;
+    background: #2563eb; /* Tailwind's bg-blue-600 equivalent */
+    border: none;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.2rem;
+  }
+  
+  .editButton:hover {
+    background: #1d4ed8; /* Tailwind's hover:bg-blue-700 equivalent */
+  }
+  
+  .userInfo {
+    text-align: center;
+  }
+  
+  .userName {
+    font-size: 2rem;
+    color: #2563eb; /* Tailwind's text-blue-600 equivalent */
+    margin-bottom: 1rem;
+  }
+  
+  .userEmail, .userContact, .userPhone {
+    font-size: 1.2rem;
+    color: #4b5563; /* Tailwind's text-gray-700 equivalent */
+    margin-bottom: 0.5rem;
+  }
+  
+  .githubLink, .resumeLink {
+    display: block;
+    margin: 1rem 0;
+    color: #2563eb; /* Tailwind's text-blue-600 equivalent */
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+  
+  .githubLink:hover, .resumeLink:hover {
+    text-decoration: underline;
+  }
+  
+  .resumeLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  } 
+
+  /* jobs.module.css */
+
+.jobsContainer {
+  display: flex;
+}
+
+.sidebar {
+  position: fixed; /* Fixed position for the sidebar */
+  top: 0;
+  left: 0;
+  height: 100vh; /* Full height of the viewport */
+  width: 250px; /* Adjust the width as needed */
+  background-color: #f8f9fa; /* Light background color for the sidebar */
+  border-right: 1px solid #e0e0e0; /* Border to separate the sidebar from the content */
+  padding: 1rem;
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1); /* Shadow for better separation */
+  overflow-y: auto; /* Allows sidebar content to scroll if necessary */
+}
+
+.jobsContent {
+  margin-left: 250px; /* Offset the content to the right to make space for the sidebar */
+  padding: 2rem;
+  width: calc(100% - 250px); /* Adjust width to fit within the remaining space */
+  height: 100vh; /* Full height of the viewport */
+  overflow-y: auto; /* Allows content to scroll */
+}
+
+.jobList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.jobItem {
+  background-color: #ffffff; /* White background */
+  border: 1px solid #e0e0e0; /* Light grey border */
+  border-radius: 8px; /* Rounded corners */
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.jobTitle {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333333; /* Dark grey color */
+}
+
+.jobDetails {
+  font-size: 1rem;
+  color: #666666; /* Medium grey color */
+}
+
+.jobLocation,
+.jobSalary,
+.jobType {
+  margin-top: 0.5rem;
+}
+
+.jobType {
+  font-style: italic;
+}
+
+.jobButton {
+  background-color: #007bff; /* Blue background */
+  color: #ffffff; /* White text */
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+}
+
+.jobButton:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}

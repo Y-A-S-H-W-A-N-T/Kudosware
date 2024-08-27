@@ -1,0 +1,63 @@
+.sidebarContainer {
+  width: 200px;
+  height: 100vh;
+  background-color: #1f2937;
+  padding-top: 2rem;
+}
+
+.profileLink {
+  border-bottom: 5px dotted white;
+  border-radius: 50px;
+}
+
+.sidebarList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebarItem {
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.sidebarLink {
+  text-decoration: none;
+  color: #f3f4f6;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+  display: block;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.sidebarLink:hover {
+  background-color: #374151;
+}
+
+.icon {
+  font-size: 2rem;
+  color: #f3f4f6;
+  padding: 10px;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .sidebarContainer {
+    width: 100%;
+    height: auto;
+    padding-top: 1rem;
+  }
+
+  .sidebarItem {
+    margin: 0.5rem 0; /* Reduce margin for mobile */
+  }
+
+  .sidebarLink {
+    font-size: 1rem; /* Slightly reduce font size */
+    padding: 0.5rem; /* Adjust padding for better spacing */
+  }
+
+  .icon {
+    font-size: 1.5rem; /* Reduce icon size on mobile */
+  }
+}
