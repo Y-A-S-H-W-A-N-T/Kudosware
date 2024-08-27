@@ -25,7 +25,7 @@ function Login() {
         }
     })
     .catch(()=>{
-        alert("Please Try Again After Some Time")
+        alert("Try Again")
     })
   };
 

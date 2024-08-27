@@ -21,10 +21,12 @@ router.post('/signup',async(req,res)=>{
         }
         const newEmployee = new Employee(employee)
         await newEmployee.save()
+        console.log(newEmployee)
         res.json({status: 200,user: newEmployee})
     }
     catch(err){
         console.log(err)
+        res.json({status: 404})
     }
 })
 
@@ -32,12 +34,14 @@ router.post('/login',async(req,res)=>{
     const { email, password } = req.body
     let User = null
     User = await Employee.findOne({ email: email})
+    console.log(User)
     if(User===null){
         console.log("No User with this email")
         res.json({status: 404}).send()
         return
     }
     const Auth = await bcrypt.compare(password, User.password)
+    console.log(Auth)
     if(!Auth){
         res.json({status: 404}).send()
         return

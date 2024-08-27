@@ -75,6 +75,9 @@ const SignIN = () => {
                 window.localStorage.setItem('user',JSON.stringify(res.data.user)) // test this
                 navigate('/profile',{ replace: true })
             }
+            if(res.data.status === 404){
+                alert("Error in Signin")
+            }
         })
     }
 
